@@ -1,0 +1,45 @@
+schema_version: 1
+phase5_pairs: outputs/phase5/sumo_v3/pairs.jsonl
+phase5_manifest: outputs/phase5/sumo_v3/run_manifest.json
+surface_root: outputs/phase6/surfacenet_v2
+surface_calibration: outputs/phase7/calibration_v2/calibration.json
+scalar_root: outputs/phase8/scalar_ttl_v1
+output_root: outputs/phase8/network_grid_v1
+development_partitions: [train, calibration, validation]
+test_partition_access: prohibited
+pair_selection: lowest_sha256_before_outcome_access
+selection_salt: network-grid-sumo-quarter-v1
+pair_count: 25
+expected_grid_conditions: 9600
+scenario_period_ms: 4000
+decision_step_ms: 200
+decision_count_per_scenario: 15
+surface_seed: 3301
+scalar_seed: 1103
+refresh_guard_band: 0.05
+network_bytes:
+  query: 32
+  object_header: 64
+  object_record: 48
+  bces_extension: 48
+  scalar_extension: 2
+  security_envelope: 64
+  refresh_request: 32
+  retry_control: 16
+grid:
+  latency_ms: [0, 50, 100, 200, 300, 500]
+  random_loss: [0, 0.05, 0.10, 0.20, 0.40]
+  bandwidth_mbps: [0.25, 0.5, 1, 2, 4]
+  pose_error_m: [0, 0.2, 0.5, 1.0]
+  yaw_error_deg: [0, 0.5, 1.0, 2.0]
+  clock_offset_ms: [0, 10, 25, 50]
+defaults:
+  jitter_ms: 10
+  duplicate_probability: 0.01
+  reorder_probability: 0.02
+  gilbert_good_to_bad: 0.01
+  gilbert_bad_to_good: 0.25
+  gilbert_bad_loss: 0.8
+methods: [surface, learned_scalar_ttl, always_fresh]
+transport_interpretation: application_workload_event_stress_not_closed_loop_driving
+

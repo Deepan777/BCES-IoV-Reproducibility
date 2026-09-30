@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "bces-iov/query-v1",
+  "title": "BCES-IoV Receiver Query v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "query_id",
+    "expected_sender_id_hash",
+    "reference_state",
+    "reference_path",
+    "behavior",
+    "risk_class",
+    "policy_hash",
+    "calibration_id",
+    "drift_scales"
+  ],
+  "$defs": {
+    "referenceState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x_m", "y_m", "speed_mps", "heading_rad", "acceleration_mps2", "curvature_inv_m", "timestamp_ms"],
+      "properties": {
+        "x_m": {"type": "number"},
+        "y_m": {"type": "number"},
+        "speed_mps": {"type": "number"},
+        "heading_rad": {"type": "number"},
+        "acceleration_mps2": {"type": "number"},
+        "curvature_inv_m": {"type": "number"},
+        "timestamp_ms": {"type": "integer", "minimum": 0}
+      }
+    },
+    "pathPoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x_m", "y_m", "speed_mps", "heading_rad", "curvature_inv_m", "time_offset_s"],
+      "properties": {
+        "x_m": {"type": "number"},
+        "y_m": {"type": "number"},
+        "speed_mps": {"type": "number"},
+        "heading_rad": {"type": "number"},
+        "curvature_inv_m": {"type": "number"},
+        "time_offset_s": {"type": "number", "minimum": 0}
+      }
+    },
+    "driftScales": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["longitudinal_m", "lateral_m", "speed_mps", "heading_rad", "acceleration_mps2", "curvature_inv_m", "elapsed_s"],
+      "properties": {
+        "longitudinal_m": {"type": "number", "exclusiveMinimum": 0},
+        "lateral_m": {"type": "number", "exclusiveMinimum": 0},
+        "speed_mps": {"type": "number", "exclusiveMinimum": 0},
+        "heading_rad": {"type": "number", "exclusiveMinimum": 0},
+        "acceleration_mps2": {"type": "number", "exclusiveMinimum": 0},
+        "curvature_inv_m": {"type": "number", "exclusiveMinimum": 0},
+        "elapsed_s": {"type": "number", "exclusiveMinimum": 0}
+      }
+    }
+  },
+  "properties": {
+    "query_id": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+    "expected_sender_id_hash": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+    "behavior": {"type": "integer", "enum": [0, 1, 2, 3, 4]},
+    "risk_class": {"type": "integer", "minimum": 0, "maximum": 255},
+    "policy_hash": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+    "calibration_id": {"type": "integer", "minimum": 0, "maximum": 255},
+    "reference_state": {"$ref": "#/$defs/referenceState"},
+    "reference_path": {"type": "array", "minItems": 12, "maxItems": 12, "items": {"$ref": "#/$defs/pathPoint"}},
+    "drift_scales": {"$ref": "#/$defs/driftScales"},
+    "protocol_version": {"const": 1},
+    "drift_schema_id": {"const": 1},
+    "normal_codebook_id": {"const": 1}
+  }
+}

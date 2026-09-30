@@ -1,0 +1,30 @@
+schema_version: 1
+artifact_root: outputs/phase4/observational_v2
+output_root: outputs/phase8/validity_mlp_v1
+seeds: [1103, 2207, 3301, 4409, 5501]
+batch_size: 512
+max_epochs: 60
+early_stopping_patience: 8
+learning_rate: 0.0003
+weight_decay: 0.0001
+gradient_clip: 1.0
+selection_metric: validation_auprc
+decision_threshold_for_monitoring: 0.5
+max_parameters: 250000
+max_peak_cuda_bytes: 5500000000
+max_checkpoint_bytes: 50000000
+loss_weights:
+  positive: 1.0
+  negative: 2.0
+calibration:
+  unsafe_accept_upper_target: 0.05
+  confidence: 0.95
+  bootstrap_replicates: 2000
+  bootstrap_seed: 9292
+  minimum_accepted: 100
+  threshold_start: 0.0
+  threshold_stop: 1.0
+  threshold_step: 0.005
+uar_denominator: all_accepted_decisions
+calibration_partition_access: calibration_only_after_training
+test_partition_access: prohibited

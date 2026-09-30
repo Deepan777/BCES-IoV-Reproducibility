@@ -1,0 +1,35 @@
+schema_version: 1
+artifact_root: outputs/phase4/observational_v2
+output_root: outputs/phase6/surfacenet_v1
+seeds: [1103, 2207, 3301, 4409, 5501]
+batch_size: 512
+max_epochs: 80
+early_stopping_patience: 10
+optimizer: AdamW
+learning_rate: 0.0003
+weight_decay: 0.0001
+gradient_clip: 1.0
+mixed_precision: fp16_dynamic_loss_scaling
+num_workers: 0
+max_parameters: 250000
+hard_max_parameters: 500000
+max_peak_cuda_bytes: 5500000000
+max_checkpoint_bytes: 50000000
+toy:
+  examples: 32
+  steps: 400
+  learning_rate: 0.003
+  minimum_accuracy: 0.90
+  minimum_loss_reduction_fraction: 0.50
+loss_weights:
+  boundary: 1.0
+  unsafe: 10.0
+  validity: 1.0
+  quantization: 0.1
+  compactness: 0.01
+  auxiliary: 0.25
+  unsafe_margin: 0.02
+  validity_temperature: 0.10
+selection_priority: [unsafe_inclusion_rate, negative_valid_coverage, total_loss]
+test_partition_access: prohibited
+calibration_partition_access: prohibited

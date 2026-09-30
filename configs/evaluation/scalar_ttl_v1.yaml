@@ -1,0 +1,34 @@
+schema_version: 1
+artifact_root: outputs/phase4/observational_v2
+output_root: outputs/phase8/scalar_ttl_v1
+seeds: [1103, 2207, 3301, 4409, 5501]
+batch_size: 512
+max_epochs: 80
+early_stopping_patience: 10
+learning_rate: 0.0003
+weight_decay: 0.0001
+gradient_clip: 1.0
+minimum_validation_accepted: 100
+max_parameters: 250000
+max_peak_cuda_bytes: 5500000000
+max_checkpoint_bytes: 50000000
+loss_weights:
+  unsafe: 10.0
+  validity: 1.0
+  compactness: 0.01
+  auxiliary: 0.25
+  unsafe_margin: 0.02
+  validity_temperature: 0.10
+calibration:
+  unsafe_accept_upper_target: 0.05
+  confidence: 0.95
+  bootstrap_replicates: 2000
+  bootstrap_seed: 8282
+  refresh_guard_band: 0.05
+  minimum_accepted: 100
+  grid_start: 0.0
+  grid_stop: 2.0
+  grid_step: 0.02
+uar_denominator: all_accepted_decisions
+calibration_partition_access: calibration_only_after_training
+test_partition_access: prohibited

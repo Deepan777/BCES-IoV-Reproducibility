@@ -1,0 +1,14 @@
+schema_version: 1
+label_source: observational
+threshold_status: frozen_before_final_test_access
+max_cost_regret: 5.0
+max_cached_risk: 0.40
+max_trajectory_deviation_m: 2.0
+cache_ages_s: [0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8, 4.0]
+maximum_objects_per_source: 32
+drift_scales: [10.0, 3.6, 5.0, 0.7853981633974483, 3.0, 0.1, 4.0]
+interpretation: empirically decision-valid for the frozen policy under stated thresholds
+rationale:
+  cost_regret: permits only a small change relative to the collision-lexicographic planner scale
+  cached_risk: excludes collision and high near-collision exposure
+  trajectory_deviation: bounded below one lane width

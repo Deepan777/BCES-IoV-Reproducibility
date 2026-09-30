@@ -1,0 +1,18 @@
+schema_version: 1
+artifact_root: outputs/phase4/observational_v2
+surface_root: outputs/phase6/surfacenet_v2
+surface_calibration: outputs/phase7/calibration_v2/calibration.json
+validity_mlp_root: outputs/phase8/validity_mlp_v1
+output_root: outputs/phase8/geometry_audit_v1
+partition: validation
+surface_seed: 3301
+validity_mlp_seed: 5501
+refresh_guard_band: 0.05
+test_partition_access: prohibited
+metrics:
+  - invalid_oracle_points_included
+  - valid_oracle_points_excluded
+  - directional_monotonicity_violations
+  - directional_boundary_error
+  - directional_reentry_nonconvex_evidence
+  - disagreement_with_flexible_mlp

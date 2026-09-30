@@ -1,0 +1,27 @@
+schema_version: 1
+artifact_root: outputs/phase4/observational_v2
+surface_root: outputs/phase6/surfacenet_v2
+surface_calibration: outputs/phase7/calibration_v2/calibration.json
+validity_mlp_root: outputs/phase8/validity_mlp_v1
+output_root: outputs/phase8/object_uncertainty_v1
+partition: validation
+surface_seed: 3301
+validity_mlp_seed: 5501
+refresh_guard_band: 0.05
+test_partition_access: prohibited
+perturbations:
+  position_error_m: [0.2, 0.5, 1.0]
+  velocity_error_mps: [0.2, 0.5, 1.0]
+  heading_error_deg: [0.5, 1.0, 2.0]
+  confidence_drop: [0.1, 0.2, 0.4]
+  missed_object_fraction: [0.1, 0.2, 0.4]
+  spurious_object_fraction: [0.1, 0.2, 0.4]
+  timestamp_error_ms: [10, 25, 50]
+corruption_semantics:
+  position_error_m: positive_x_bias_on_cooperative_objects
+  velocity_error_mps: positive_vx_bias_on_cooperative_objects
+  heading_error_deg: rotate_object_velocity_counterclockwise
+  confidence_drop: subtract_and_clip_to_zero
+  missed_object_fraction: hash_selected_references_drop_nearest_object
+  spurious_object_fraction: hash_selected_references_insert_fixed_plausible_object
+  timestamp_error_ms: positive_receiver_clock_bias

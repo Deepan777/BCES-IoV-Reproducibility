@@ -1,0 +1,18 @@
+schema_version: 1
+horizon_s: 3.0
+step_s: 0.2
+longitudinal_accelerations_mps2: [-4.0, -2.0, 0.0, 1.0, 2.0]
+lateral_maneuvers: [keep, left, right]
+lane_width_m: 3.6
+speed_limit_mps: 20.0
+collision_margin_m: 0.5
+weights:
+  collision: 1000.0
+  ttc: 100.0
+  route: 10.0
+  lane: 20.0
+  comfort: 1.0
+  progress: 2.0
+selection: lexicographic_collision_ttc_then_total
+object_forecast: constant_velocity_with_class_growth
+policy_name: bces_kinematic_policy_a_v1

@@ -1,0 +1,14 @@
+schema_version: 1
+dataset_id: tumtraf_v2x_external
+evidence_role: external_validation
+status: blocked_account_access_and_selective_endpoint
+reviewed_utc_date: '2026-09-21'
+official_sources:
+  - provenance_url: https://github.com/tum-traffic-dataset/tumtraf-v2x/blob/master/index.html
+    license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+    permitted_scope: track_labels_maps_only
+blocking_reasons:
+  - official_r4_download_redirects_to_account_registration_and_license_acceptance
+  - no_unauthenticated_selective_openlabel_track_endpoint_found
+  - exact_content_length_and_sha256_not_recorded
+files: []

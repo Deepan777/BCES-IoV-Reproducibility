@@ -1,0 +1,67 @@
+schema_version: 1
+pilot_report: outputs/phase9/pilot_v1/pilot.json
+pilot_report_sha256: d7571fc12d4cc3164360d0a60443dbeaf278a5d637d7ed2c52a5411fab2b661e
+phase8_gate: outputs/phase8/phase8_gate.json
+output_root: outputs/phase9/confirmatory_v1
+sumo_version: 1.27.1
+network: sumo/registered_grid_v1.net.xml
+planner_config: configs/planner/kinematic.yaml
+drift_scale_manifest: data/manifests/drift_scales_v2.json
+surface_root: outputs/phase6/surfacenet_v2
+surface_calibration: outputs/phase7/calibration_v2/calibration.json
+scalar_root: outputs/phase8/scalar_ttl_v1
+surface_seed: 3301
+scalar_seed: 1103
+seed_start: 9200
+matched_seed_count: 30
+step_s: 0.2
+reference_time_s: 5.0
+horizon_s: 3.0
+critical_ttc_s: 2.0
+families:
+  - straight_lead_braking
+  - hidden_adjacent_lane_change
+  - on_ramp_merge
+  - signalized_turn_crossing
+  - unprotected_crossing
+  - pedestrian_crossing
+methods: [surface_every_tick, surface_receipt_only, learned_scalar_ttl, always_fresh, local_only]
+conditions:
+  clean:
+    latency_ms: 0
+    loss_probability: 0
+    bandwidth_mbps: 4
+    jitter_ms: 0
+    duplicate_probability: 0
+    reorder_probability: 0
+    clock_offset_ms: 0
+    pose_error_m: 0
+    yaw_error_deg: 0
+    gilbert_good_to_bad: 0
+    gilbert_bad_to_good: 1
+    gilbert_bad_loss: 0
+  locked_impairment:
+    latency_ms: 100
+    loss_probability: 0.05
+    bandwidth_mbps: 1
+    jitter_ms: 10
+    duplicate_probability: 0.01
+    reorder_probability: 0.02
+    clock_offset_ms: 25
+    pose_error_m: 0.5
+    yaw_error_deg: 1.0
+    gilbert_good_to_bad: 0.01
+    gilbert_bad_to_good: 0.25
+    gilbert_bad_loss: 0.8
+network_bytes:
+  query: 32
+  object_header: 64
+  object_record: 48
+  bces_extension: 48
+  scalar_extension: 2
+  security_envelope: 64
+  refresh_request: 32
+  retry_control: 16
+rendering: prohibited
+test_partition_access: confirmatory_new_seeds_only
+

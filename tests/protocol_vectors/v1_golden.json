@@ -1,0 +1,23 @@
+{
+  "description": "BCES-IoV protocol-v1 network-byte-order golden packet",
+  "packet": {
+    "protocol_version": 1,
+    "flags": 0,
+    "behavior_id": 3,
+    "drift_schema_id": 1,
+    "query_id": 16909060,
+    "sender_id_hash": 287454020,
+    "payload_digest": 1432778632,
+    "policy_hash": 2578103244,
+    "t_ref_ms": 168496141,
+    "normal_codebook_id": 1,
+    "k": 16,
+    "risk_class": 2,
+    "calibration_id": 7,
+    "offset_scale_q15": 16384,
+    "reserved": 0,
+    "quantized_offsets": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  },
+  "expected_hex": "0100030101020304112233445566778899aabbcc0a0b0c0d0110020740000000000102030405060708090a0b0c0d0e0f"
+}
+

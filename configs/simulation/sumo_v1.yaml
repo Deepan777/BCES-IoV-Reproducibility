@@ -1,0 +1,22 @@
+schema_version: 1
+sumo_version: 1.27.1
+network: sumo/registered_grid_v1.net.xml
+network_generator: netgenerate --grid --grid.number 3 --grid.length 100 --default.lanenumber 2 --tls.guess true --seed 17
+step_s: 0.2
+reference_time_s: 5.0
+branch_horizon_s: 3.0
+pair_count: 100
+seed_start: 4100
+families:
+  - straight_lead_braking
+  - hidden_adjacent_lane_change
+  - on_ramp_merge
+  - signalized_turn_crossing
+  - unprotected_crossing
+  - pedestrian_crossing
+rendering: prohibited
+state_equivalence_tolerance: 1.0e-6
+label_thresholds:
+  max_cost_regret: 5.0
+  max_cached_risk: 0.40
+  max_trajectory_deviation_m: 2.0

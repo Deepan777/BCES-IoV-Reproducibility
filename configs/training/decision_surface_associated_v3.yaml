@@ -1,0 +1,25 @@
+schema_version: 3
+data_root: outputs/study_b/causal_associated_v3
+diagnostics: outputs/study_b/diagnostics_associated_v3/diagnostics.json
+output_root: outputs/study_b/decision_surface_associated_v3
+seeds: [140926, 140927, 140928]
+epochs: 100
+patience: 15
+batch_size: 512
+learning_rate: 0.0005
+weight_decay: 0.001
+minimum_diagnostic_auroc: 0.65
+minimum_geometry_extra_valid_points: 1
+feature_views: [frozen_inputs, reference_margins]
+families: [surface, scalar_ttl]
+primary_selection: minimum_validation_weighted_loss_then_seed
+origin_abstention: required
+offset_quantization: fixed_q15_scale_65535_inward_rounding
+guard_band: 0.05
+shrinkages: [0.0, 0.025, 0.05, 0.1, 0.2, 0.3, 0.5, 0.75, 1.0]
+minimum_accepted: 100
+target_uar: 0.05
+max_parameters: 250000
+max_cuda_allocated_bytes: 5500000000
+scientific_status: counterfactual_learning_diagnostic_only
+manuscript_allowed: false

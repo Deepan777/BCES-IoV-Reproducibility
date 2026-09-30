@@ -1,0 +1,39 @@
+schema_version: 2
+output_root: outputs/study_b/controlled_development_v2
+diagnostic_root: outputs/study_b/diagnostics_controlled_v2
+contract_audit: outputs/study_b/controlled_contract_v2/audit.json
+network: sumo/registered_grid_v1.net.xml
+planner: configs/planner/kinematic.yaml
+validity: configs/oracle/validity_v1.yaml
+partitions:
+  train: 240
+  validation: 80
+  calibration: 80
+scenario_seed_start: 250926
+reference_time_s: 5.0
+step_s: 0.2
+history_frames: 5
+drift_scales: [40.0, 5.0, 5.0, 0.7, 3.0, 0.1, 4.0]
+ages_s: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8, 4.0]
+receiver_drift_variants: [-1.0, 0.0, 1.0]
+maximum_points_per_scenario: 315
+local_range_m: 30.0
+cooperative_range_m: 120.0
+stress_probability: 0.25
+ego_initial_speed_mps: [6.5, 12.0]
+ego_post_reference_accelerations_mps2: [-1.0, 0.0, 1.0]
+nominal_actor_position_jitter_m: [-8.0, 8.0]
+stress_actor_position_jitter_m: [-20.0, 0.0]
+vehicle_speed_jitter_mps: [-2.0, 2.0]
+pedestrian_speed_jitter_mps: [-0.3, 0.3]
+braking_event_delay_s: [0.4, 2.0]
+seed: 140926
+classifier_iterations: 180
+classifier_leaf_counts: [15, 31]
+geometry_reference_limit: 150
+geometry_time_limit_s: 3.0
+target_uar: 0.05
+minimum_accepted: 100
+candidate_thresholds: [0.5, 0.7, 0.8, 0.9, 0.95, 0.975, 0.99, 0.995]
+scientific_status: controlled_open_loop_development_only
+manuscript_allowed: false

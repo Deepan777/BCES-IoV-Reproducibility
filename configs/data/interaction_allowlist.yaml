@@ -1,0 +1,14 @@
+schema_version: 1
+dataset_id: interaction_sensitivity
+evidence_role: sensitivity
+status: blocked_access_and_data_license
+reviewed_utc_date: '2026-09-04'
+official_sources:
+  - provenance_url: https://github.com/interaction-dataset/interaction-dataset
+    access_url: https://interaction-dataset.com/about/
+    permitted_scope: trajectory_csv_and_semantic_maps_only
+blocking_reasons:
+  - official_access_requires_manual_review
+  - dataset_terms_must_be_resolved_separately_from_code_license
+  - no_independent_cooperative_v2x_viewpoints
+files: []

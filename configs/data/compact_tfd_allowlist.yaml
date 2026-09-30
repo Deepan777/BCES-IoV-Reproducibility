@@ -1,0 +1,54 @@
+schema_version: 1
+dataset_id: v2xseq_tfd_compact
+evidence_role: optional_replication
+status: blocked_no_compliant_candidate
+reviewed_utc_date: '2026-09-04'
+official_sources:
+  - source_id: v2x_seq_tfd_example_archive
+    provenance_url: https://github.com/AIR-THU/DAIR-V2X-Seq/blob/main/README.md
+    structure_url: https://github.com/AIR-THU/DAIR-V2X-Seq/blob/main/dataset/v2x-seq-tfd/README.md
+    download_url: https://drive.google.com/file/d/1-Ri92z6rkH14vAOFOx5xhfzvFxBptgAA/view
+    download_endpoint: https://drive.google.com/uc?export=download&id=1-Ri92z6rkH14vAOFOx5xhfzvFxBptgAA
+    advertised_name: V2X-Seq-TFD-Example.zip
+    advertised_size_text: 273M
+    conservative_minimum_bytes: 273000000
+    access_granularity: monolithic_archive
+    permitted_content_description: trajectories, vector maps, and traffic-light signals
+    license_status: unresolved_from_official_repository_and_direct_example_page
+    candidate_status: blocked
+    blocking_reasons:
+      - exceeds_250000000_byte_download_tranche
+      - no_official_per_scene_download_urls
+      - standard_head_response_has_no_usable_content_length
+      - published_sha256_unavailable
+      - dataset_license_terms_unresolved
+  - source_id: official_public_v2x_datasets_tfd
+    provenance_url: https://github.com/AIR-THU/DAIR-V2X/blob/main/README.md
+    public_root_url: https://drive.google.com/drive/folders/1gnrw5llXAIxuB9sEKKCm6xTaJ5HQAw2e
+    trajectory_forecasting_folder_url: https://drive.google.com/drive/folders/1yDnlrPCKImpVfI1OPBYyzLFWkhZP5v-7
+    access_granularity: archive_only
+    example_archive:
+      folder_id: 1xS5U_TAuVt31X1KlxLyaTqD7FePsFe0O
+      file_id: 1EI_INcDVkcDRlyfcj8PK1cf2JCfDFZyQ
+      name: V2X-Seq-TFD-Example.zip
+      advertised_size_text: 272.6 MB
+      conservative_minimum_bytes: 272600000
+    full_archive:
+      folder_id: 1XnNDS4nV2wrL6dWVc7jLjTD5X2tMdCvt
+      file_id: 1XlPV4QbUv7_v0FbTXDL3x416ifNCZSGm
+      name: V2X-Seq-TFD.zip
+      advertised_size_text: 1.3 GB
+      conservative_minimum_bytes: 1300000000
+    license_status: unresolved_dataset_terms
+    candidate_status: blocked
+    blocking_reasons:
+      - both_official_branches_expose_archives_only
+      - smallest_official_archive_exceeds_250000000_byte_download_tranche
+      - no_official_per_scene_download_urls
+      - dataset_license_terms_unresolved
+blocking_reasons:
+  - official_example_archive_exceeds_250000000_byte_download_tranche
+  - both_official_distributions_expose_no_per_scene_selective_urls
+  - official_example_head_preflight_returns_html_with_zero_content_length
+  - official_dataset_license_terms_are_unresolved
+files: []

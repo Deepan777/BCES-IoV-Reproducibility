@@ -1,0 +1,13 @@
+protocol_version: 1
+packet_bytes: 48
+network_byte_order: big_endian
+drift_schema_id: 1
+drift_dimensions: 7
+normal_codebook_id: 1
+normal_count: 16
+normal_construction: seven_positive_negative_axis_pairs_plus_positive_negative_unit_diagonal
+normal_codebook_sha256: 2ba57e3d277ecda2ea947fe54e7c6c139b5a117c714a2f54aa56d4c7338106b1
+offset_scale_encoding: unsigned_q15
+quantized_offset_encoding: uint8
+supported_flags_mask: 0
+reserved_value: 0

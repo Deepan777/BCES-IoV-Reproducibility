@@ -1,0 +1,33 @@
+schema_version: 1
+phase4_root: outputs/phase4/observational_v2
+review_manifest: data/manifests/v2xtraj_window_review_v1.json
+raw_root: data/raw/v2xtraj_primary
+drift_scales: data/manifests/drift_scales_v2.json
+validity_config: configs/oracle/validity_v1.yaml
+policy_a_config: configs/planner/kinematic.yaml
+policy_b_config: configs/planner/kinematic_policy_b.yaml
+surface_root: outputs/phase6/surfacenet_v2
+surface_calibration: outputs/phase7/calibration_v2/calibration.json
+scalar_root: outputs/phase8/scalar_ttl_v1
+validity_mlp_root: outputs/phase8/validity_mlp_v1
+output_root: outputs/phase8/second_planner_v1
+partition: validation
+scenario_selection: lowest_sha256_before_outcome_access
+selection_salt: second-planner-policy-b-v1
+maximum_scenarios: 40
+validity_ages_s: [0.2, 0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0,
+                  2.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8, 4.0]
+minimum_matched_points: 2500
+minimum_matched_points_per_behavior: 150
+surface_seed: 3301
+scalar_seed: 1103
+validity_mlp_seed: 5501
+refresh_guard_band: 0.05
+confidence: 0.95
+bootstrap_replicates: 2000
+minimum_accepted: 100
+unsafe_accept_upper_target: 0.05
+bootstrap_seed: 88013
+test_partition_access: prohibited
+transfer_interpretation: forced_offline_diagnostic_only_protocol_rejects_policy_hash_mismatch
+

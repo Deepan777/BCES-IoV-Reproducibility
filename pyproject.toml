@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bces-iov"
+version = "0.0.1"
+description = "Behavior-Conditional Expiry Surfaces for cooperative-perception message reuse"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "eclipse-sumo==1.27.1",
+  "matplotlib>=3.10,<3.11",
+  "numpy>=2.4,<2.5",
+  "PyYAML>=6,<7",
+  "psutil>=5.9,<8",
+  "requests>=2.31,<3",
+  "scikit-learn>=1.8,<1.9",
+  "scipy>=1.17,<1.18",
+  "torch>=2.13,<2.14",
+]
+
+[project.optional-dependencies]
+phase0 = [
+  "pytest>=8,<10",
+  "hypothesis>=6,<7",
+]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+markers = [
+  "phase0: Phase-0 resource, environment-parser, and reproducibility tests",
+  "phase1: Phase-1 protocol, geometry, codec, and receiver tests",
+  "phase2: Phase-2 deterministic synthetic smoke-pipeline tests",
+  "phase3: Phase-3 selective acquisition, manifest, adequacy, and leakage tests",
+  "phase4: Phase-4 frozen planner and observational-oracle tests",
+  "phase5: Phase-5 SUMO same-world branch tests",
+  "phase6: Phase-6 SurfaceNet-Lite training tests",
+  "phase7: Phase-7 calibration and leakage-guard tests",
+  "phase8: Phase-8 offline baseline, ablation, and network tests",
+  "phase9: Phase-9 locked SUMO evaluation tests",
+  "phase10: Phase-10 statistics and robustness tests",
+  "phase11: Phase-11 paper-artifact and claim-integrity tests",
+]
+
+[tool.setuptools.packages.find]
+include = ["bces*"]

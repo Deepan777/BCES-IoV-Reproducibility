@@ -1,0 +1,68 @@
+schema_version: 1
+phase4_root: outputs/phase4/observational_v2
+phase6_root: outputs/phase6/surfacenet_v2
+phase7_file: outputs/phase7/calibration_v2/calibration.json
+phase5_file: outputs/phase5/sumo_v3/pairs.jsonl
+output_root: outputs/phase8/offline_v1
+development_partition: validation
+final_partition: test
+test_access_condition: phase7_v2_frozen_and_gate_passed
+primary_model_seed: from_phase7
+unsafe_accept_target: 0.05
+minimum_accepted: 100
+refresh_guard_band: 0.05
+mandatory_baselines:
+  - ungated_cached_reuse
+  - fixed_ttl
+  - behavior_specific_ttl
+  - learned_behavior_conditioned_scalar_ttl
+  - aoi_gate
+  - aoii_state_error_gate
+  - confidence_gate
+  - voi_relevance_gate
+  - constant_velocity_plus_strongest_scalar
+  - local_only_reference
+  - always_fresh_oracle_reference
+mandatory_ablations:
+  - remove_behavior_input
+  - time_only_drift
+  - scalar_instead_of_surface
+  - k_8
+  - k_12
+  - k_16
+  - k_24
+  - k_32
+  - no_unsafe_inclusion_loss
+  - no_quantization_simulation
+  - no_calibration
+  - no_object_context_features
+  - ignore_policy_mismatch_failure
+  - observational_only_labels
+  - sumo_only_labels
+  - receipt_only_check
+  - every_tick_check
+threshold_grid_points: 201
+sumo_fraction_for_network_grid: 0.25
+network_bytes:
+  query: 32
+  object_header: 64
+  object_record: 48
+  bces_extension: 48
+  security_envelope: 64
+  refresh_request: 32
+  retry_control: 16
+network_grid:
+  latency_ms: [0, 50, 100, 200, 300, 500]
+  random_loss: [0, 0.05, 0.10, 0.20, 0.40]
+  bandwidth_mbps: [0.25, 0.5, 1, 2, 4]
+  pose_error_m: [0, 0.2, 0.5, 1.0]
+  yaw_error_deg: [0, 0.5, 1.0, 2.0]
+  clock_offset_ms: [0, 10, 25, 50]
+network_defaults:
+  jitter_ms: 10
+  duplicate_probability: 0.01
+  reorder_probability: 0.02
+  gilbert_good_to_bad: 0.01
+  gilbert_bad_to_good: 0.25
+  gilbert_bad_loss: 0.8
+seed: 8181

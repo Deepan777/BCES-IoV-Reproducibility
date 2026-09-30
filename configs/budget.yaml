@@ -1,0 +1,6 @@
+initial_data_review_bytes: 500000000
+max_download_tranche_bytes: 250000000
+required_output_reserve_bytes: 1500000000
+warn_workspace_bytes: 8500000000
+max_workspace_bytes: 10000000000
+max_cuda_allocated_bytes: 5500000000

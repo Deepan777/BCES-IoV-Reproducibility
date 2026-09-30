@@ -1,0 +1,21 @@
+schema_version: 1
+phase8_gate: outputs/phase8/phase8_gate.json
+offline_manifest: outputs/phase8/final_offline_v1/run_manifest.json
+offline_decisions: outputs/phase8/final_offline_v1/decisions.jsonl.gz
+phase9_gate: outputs/phase9/phase9_gate.json
+sumo_manifest: outputs/phase9/confirmatory_v1/run_manifest.json
+sumo_routes: outputs/phase9/confirmatory_v1/routes.jsonl.gz
+second_planner: outputs/phase8/second_planner_v1/second_planner.json
+object_uncertainty: outputs/phase8/object_uncertainty_v1/object_uncertainty.json
+geometry_audit: outputs/phase8/geometry_audit_v1/geometry_audit.json
+network_grid: outputs/phase8/network_grid_v1/run_manifest.json
+output_root: outputs/phase10/statistics_v1
+confidence: 0.95
+bootstrap_replicates: 10000
+permutation_replicates: 20000
+seed: 101001
+matched_coverage_fraction: 0.03
+holm_families: [offline_selective_risk, sumo_communication, sumo_driving]
+unit_of_inference_offline: scenario_or_intersection_cluster
+unit_of_inference_sumo: matched_seed
+

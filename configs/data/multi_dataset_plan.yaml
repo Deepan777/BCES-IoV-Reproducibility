@@ -1,0 +1,22 @@
+schema_version: 1
+amendment_id: SCIENTIFIC_AMENDMENT_001
+approved_utc_date: '2026-09-04'
+network_impairments: replayed_or_simulated_not_observed_packet_logs
+phase4_gate: primary_dataset_only
+datasets:
+  - dataset_id: v2xtraj_primary
+    evidence_role: primary
+    catalog: configs/data/v2xtraj_allowlist.yaml
+    purpose: confirmatory development and intersection-disjoint evaluation
+  - dataset_id: tumtraf_v2x_external
+    evidence_role: external_validation
+    catalog: configs/data/tumtraf_v2x_allowlist.yaml
+    purpose: external geographic and sensing-domain validation
+  - dataset_id: interaction_sensitivity
+    evidence_role: sensitivity
+    catalog: configs/data/interaction_allowlist.yaml
+    purpose: non-cooperative trajectory and map sensitivity analysis only
+  - dataset_id: v2xseq_tfd_compact
+    evidence_role: optional_replication
+    catalog: configs/data/compact_tfd_allowlist.yaml
+    purpose: optional cooperative-trajectory replication if selective access resolves

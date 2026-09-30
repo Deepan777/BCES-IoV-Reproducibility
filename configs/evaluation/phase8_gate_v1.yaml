@@ -1,0 +1,15 @@
+schema_version: 1
+final_offline: outputs/phase8/final_offline_v1/run_manifest.json
+final_decisions: outputs/phase8/final_offline_v1/decisions.jsonl.gz
+network_grid: outputs/phase8/network_grid_v1/run_manifest.json
+second_planner: outputs/phase8/second_planner_v1/second_planner.json
+geometry_audit: outputs/phase8/geometry_audit_v1/geometry_audit.json
+object_uncertainty: outputs/phase8/object_uncertainty_v1/object_uncertainty.json
+sumo_source_ablation: outputs/phase8/sumo_source_ablation_v1/run_manifest.json
+output: outputs/phase8/phase8_gate.json
+unsafe_accept_upper_target: 0.05
+minimum_accepted: 100
+minimum_nontrivial_coverage: 0.03
+expected_network_conditions: 9600
+expected_network_pairs: 25
+

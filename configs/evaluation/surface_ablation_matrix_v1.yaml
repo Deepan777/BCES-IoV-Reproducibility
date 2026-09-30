@@ -1,0 +1,46 @@
+schema_version: 1
+artifact_root: outputs/phase4/observational_v2
+output_root: outputs/phase8/surface_ablation_matrix_v1
+seed: 3301
+batch_size: 512
+max_epochs: 40
+early_stopping_patience: 6
+learning_rate: 0.0003
+weight_decay: 0.0001
+gradient_clip: 1.0
+minimum_validation_accepted: 100
+max_parameters: 250000
+max_peak_cuda_bytes: 5500000000
+max_checkpoint_bytes: 50000000
+training_objective: classification_only_for_normal_count_fairness
+loss_weights:
+  unsafe: 10.0
+  validity: 1.0
+  quantization: 0.1
+  compactness: 0.01
+  auxiliary: 0.25
+  unsafe_margin: 0.02
+  validity_temperature: 0.10
+variants:
+  - {id: k8, normal_count: 8}
+  - {id: k12, normal_count: 12}
+  - {id: k16, normal_count: 16}
+  - {id: k24, normal_count: 24}
+  - {id: k32, normal_count: 32}
+  - {id: remove_behavior, normal_count: 16, remove_behavior: true}
+  - {id: no_object_context, normal_count: 16, remove_objects: true}
+  - {id: no_unsafe_loss, normal_count: 16, loss_overrides: {unsafe: 0.0}}
+  - {id: no_quantization_simulation, normal_count: 16, loss_overrides: {quantization: 0.0}}
+calibration:
+  unsafe_accept_upper_target: 0.05
+  confidence: 0.95
+  bootstrap_replicates: 2000
+  bootstrap_seed: 11303
+  refresh_guard_band: 0.05
+  minimum_accepted: 100
+  grid_start: 0.0
+  grid_stop: 2.0
+  grid_step: 0.02
+uar_denominator: all_accepted_decisions
+calibration_partition_access: calibration_only_after_all_variants_train
+test_partition_access: prohibited

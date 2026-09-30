@@ -1,0 +1,22 @@
+schema_version: 1
+purpose: software_verification_only
+seed: 0
+fixture:
+  frames: 20
+  step_ms: 100
+  vehicles: 2
+  occluded_pedestrians: 1
+  behaviors: [keep, brake]
+  known_surface_boundary_frame: 11
+oracle_thresholds:
+  max_cost_regret: 0.05
+  max_cached_risk: 0.2
+  max_trajectory_deviation_m: 0.5
+surface:
+  offsets: 1.0
+  refresh_guard_band: 0.05
+expected_metrics:
+  coverage: 0.5
+  unsafe_accept_rate: 0.1
+network_access: forbidden
+workspace_artifact_limit_bytes: 10000000

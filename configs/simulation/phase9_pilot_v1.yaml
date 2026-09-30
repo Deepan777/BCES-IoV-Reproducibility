@@ -1,0 +1,15 @@
+schema_version: 1
+phase5_pairs: outputs/phase5/sumo_v3/pairs.jsonl
+phase5_manifest: outputs/phase5/sumo_v3/run_manifest.json
+phase8_gate: outputs/phase8/phase8_gate.json
+output_root: outputs/phase9/pilot_v1
+allowed_partitions: [train, calibration, validation]
+test_partition_access: prohibited
+critical_ttc_s: 2.0
+alpha_two_sided: 0.05
+target_power: 0.80
+minimum_confirmatory_seeds: 30
+maximum_local_confirmatory_seeds: 30
+minimum_relevant_communication_effect_fraction: 0.10
+unit_of_inference: sumo_same_world_seed_pair
+

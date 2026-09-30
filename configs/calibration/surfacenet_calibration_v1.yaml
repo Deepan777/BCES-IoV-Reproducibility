@@ -1,0 +1,22 @@
+schema_version: 1
+phase6_root: outputs/phase6/surfacenet_v1
+phase4_root: outputs/phase4/observational_v2
+output_root: outputs/phase7/calibration_v1
+partition: calibration
+test_partition_access: prohibited
+risk_classes: [1]
+behavior_ids: [0, 1, 2, 3, 4]
+pool_behavior_below_points: 500
+pool_behavior_below_clusters: 8
+unsafe_accept_upper_target: 0.05
+confidence: 0.95
+bootstrap_replicates: 2000
+bootstrap_seed: 7171
+refresh_guard_band: 0.05
+minimum_accepted_per_curve: 100
+shrinkage_grid:
+  start: 0.0
+  stop: 2.0
+  step: 0.02
+model_seed_selection: lexicographic_validation_unsafe_then_coverage_then_loss
+quantization: exact_unsigned_q15_uint8

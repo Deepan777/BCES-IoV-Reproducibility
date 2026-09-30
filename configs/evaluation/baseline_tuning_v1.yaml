@@ -1,0 +1,22 @@
+schema_version: 1
+artifact_root: outputs/phase4/observational_v2
+output_root: outputs/phase8/baseline_tuning_v1
+surface_calibration: outputs/phase7/calibration_v2/calibration.json
+scalar_manifest: outputs/phase8/scalar_ttl_v1/run_manifest.json
+validity_mlp_manifest: outputs/phase8/validity_mlp_v1/run_manifest.json
+partition: validation
+test_partition_access: prohibited
+unsafe_accept_upper_target: 0.05
+confidence: 0.95
+bootstrap_replicates: 2000
+bootstrap_seed: 10303
+minimum_accepted: 100
+threshold_grid_points: 201
+score_contracts:
+  fixed_ttl: raw_elapsed_seconds
+  behavior_specific_ttl: raw_elapsed_seconds_by_behavior
+  aoi_gate: raw_elapsed_seconds_plus_reference_estimated_delay
+  aoii_state_error_gate: maximum_absolute_non_temporal_normalized_drift
+  confidence_gate: one_minus_mean_valid_object_confidence
+  voi_relevance_gate: occlusion_plus_near_object_relevance
+uar_denominator: all_accepted_decisions
