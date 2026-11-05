@@ -1,0 +1,918 @@
+{
+  "status": "FROZEN_BEFORE_NEW_OUTCOMES",
+  "registered_utc": "2026-10-30T11:01:23.833569+00:00",
+  "source_sha256": {
+    "budget_study.py": "bde72cbb4d1d06bfbe4079a402540b56eedece661589ad702adc5f5618f8e827",
+    "confirmation_study.py": "0c302d509a1f034a6170df8d79f9270bf69eaa2a30e0e193b03708700a98654c",
+    "development_study.py": "69b105e1f8552aa843d6f500ff3e563f43c84390c2c54e5f2f653c97cf346143",
+    "driving_study.py": "ac15447bc7184756cd668f584eec51b47a174c8481e98a1a000d90b5445fb804",
+    "extended_closed_loop.py": "bad9c92b83befa3a7d0461a3d5a3eb98b8601c65f36eda9d70c4e940a34279b1",
+    "external_observations.py": "60d7e7232d9be8e80aa694aeb3813d8a87b9552bb7136a123cf7909e3427e76e",
+    "fast_sumo.py": "c5d8ef5401c685b1745ab30735000ca89f5f0d332d5b49b5f9ff5ff01c30d81e",
+    "local_policies.py": "f0d788b9b892d5fde22d7c742044fd2bb082baa3ff7712ac1f2c71040069e599",
+    "premise_and_runtime.py": "451c914ead3ddc14ca90def0d564c97ebdd9a65a644a50127da50e58761f0372",
+    "robustness_study.py": "2231ff575aabbd396901acfb82bef128e6edfdcafa07a863c20a96c68bbd656f",
+    "write_safely.py": "adf3ef8dd31507db045e3e883a6c655e168c2fb535a80a0d9eef4dc922630727"
+  },
+  "checkpoint_sha256": {
+    "flexible_mlp.pt": "f1f3f57731877910a70273bdc53437a47744f1474cf8a9dd80226e69aa113b9b",
+    "flexible_tree.joblib": "b1b156cbc4eeec7d309af7f53b8f51c64c44f81378a808b6ac29ca043c3092df",
+    "surface_teacher0_behavior0.pt": "604254ff47fb4c1bf722546192e2325a2b1b3a716c2394b155028a57293b7056",
+    "surface_teacher0_behavior1.pt": "d1a44db4c4da120b336ddebcafe933cffe9a731c1741f720ecb4c2691950a79d",
+    "surface_teacher1_behavior0.pt": "6a0d7aadf148aebb965ee8208fc4ea795267aa86bf2cb5c69dc81b618174a098",
+    "surface_teacher1_behavior1.pt": "dd72a65f549e7615ca7ade0745ae4cb5e39f4478e1174ad50285502c8fb5e8ef",
+    "ttl_teacher0_behavior0.pt": "4b5700554111c7e76a848937efc392f8ab4fe238e9450a434237cd5ba4f2e05a",
+    "ttl_teacher0_behavior1.pt": "9c87a0d8099f9bcda01c0fa45a2d5e91cbe786693924c06263dcfc809a57aaea",
+    "ttl_teacher1_behavior0.pt": "90f8b7a996279eafd1a9a230e8a465ea656795466edf8142ab5fd8fa749f2e19",
+    "ttl_teacher1_behavior1.pt": "a0dd5a0d177436fe4e84ddd2eb586e343213ffef1ebd0cd04c45d5d45094a689"
+  },
+  "original_asset_sha256": {
+    "configs/evaluation/study_b_controlled_v2.yaml": "1dcff90437240e4c569b81caeab61cbfa3e7138261c6a0db82d929986954589f",
+    "configs/planner/kinematic.yaml": "b7d28228ddc1eda3c9c59fa46e08ab81832e61eea9f07eb16591adc507d09392",
+    "sumo/registered_grid_v1.net.xml": "476cd09dd964e2f55258e9730f96bbdc0048ba4c2dd357016141e6a386127cfb",
+    "bces/simulation/controlled_slots.py": "18f5ed771cd409e86d7cdaca4228b1f2971132dea7dfcb588a32b67990efd590",
+    "bces/simulation/controlled_decisions.py": "38ea8cbeb90d1264f0b823562c0f7fa874808d8090930eb74ed45371957ffaae",
+    "bces/oracle/planner.py": "44d7443d713ec2d0766f3b3fe4d15d2ccfe12eadade2ba35192308185c2093b3",
+    "bces/oracle/vectorized_planner.py": "09c3123b0590ac5908b0c66c333f27f37df592fb87948e7a0fd3f4c644f661af",
+    "bces/simulation/controlled_contract.py": "cab2a8fd85c1bcd9454553850727eff34407c0ccf45ec40004f7bd65e1d4ccc6",
+    "scripts/16_generate_controlled_development.py": "e734a00d645bb1d46a952b0021ed3a338a93f1b37c6e45fdeecfae7eeeaecae3",
+    "outputs\\study_b\\slot_confirmation_v1\\preregistration.json": "866876df46a9ef392786386f35663f0fc673a0f884a36d93d36a1eb9d8c207cf",
+    "outputs/study_b/decision_surface_controlled_v2/reference_margins_scalar_ttl_140927.pt": "973b1fa08d1655341bd6290065b8d45844da404133f83b5035e33dcbd42356c2",
+    "outputs/study_b/decision_surface_controlled_v2/reference_margins_surface_140928.pt": "da48856f6059d98fd8f9abd7e5a92d0d5eed0a5dec9b2b858fcaca12d1e7e2eb",
+    "bces\\__init__.py": "bf77d6a33152332660fc9c808691fa56ee0b070a0591ae8928eefde03bdae76c",
+    "bces\\baselines\\tuning.py": "3f4c264a024351e0bd1ae9cbfee264945afed316c5ea6b119bcf02964d59e0df",
+    "bces\\baselines\\__init__.py": "38e0353ae0f2cc6b0f60e02a9f2bc3c9136c7411bd5cf60a02884c02715a1a18",
+    "bces\\data\\adapters.py": "c676febcf367b2ebe8a9b41d855468a50d1cf0e18b88ce9e634590b340873cb8",
+    "bces\\data\\adequacy.py": "d36711be064a76a218b1bd26d22b5ab088e0ece59cad5a8ffac3afdc93e8dd5c",
+    "bces\\data\\datasets.py": "ddafb0cd59e91e5a8d2ae959929cfaa3de2ab16e789dcf77639def030bedcc4a",
+    "bces\\data\\download.py": "79ff5dc3a191d05b77475f5d76c5ced63b04a8b653c3971f694ee8e084f4dd1c",
+    "bces\\data\\manifest.py": "4a8d36e5f4f14c2f2bc71603766e8322b9e91b0be91cc6e5b0933ad0ddb38431",
+    "bces\\data\\multidataset.py": "566709f671dcd0051a0b38879fc697ca21be25fac54b78e775fa48fa27a51f82",
+    "bces\\data\\objects.py": "b20d428c634f3ad0fee13b4d6c74b26a10ef14c8534e95e8ba82b61205f894c6",
+    "bces\\data\\remote_zip.py": "340e3de70e91d080abfb80a19754d5652953bbdb5bccccdbb632dd06ec18d3b5",
+    "bces\\data\\smoke.py": "41384d99de4b94551b000c56ac9869adf2a2368865a4776e9e8f1045e62c3498",
+    "bces\\data\\splits.py": "73206c54171539cde481946d00bdec75411591905993a6076c91b020e8c3e1b1",
+    "bces\\data\\tfd.py": "f17d0396c6088870a8bb6be7c9d0176123e54cdb8bc157523d82f48043611e41",
+    "bces\\data\\windows.py": "4ee75783cda5791bede3fae62a0c4bc8a15b623258d2fd9ee8258cdc77449209",
+    "bces\\data\\workflow.py": "4dfeb6f7b6a04f29fd2358ac741d770126e069168c31b8a4e51d162e522ed70c",
+    "bces\\data\\__init__.py": "add515c6c70e99ca364f799e26ebd53a5094ced428e77674d2708e9c1848caf6",
+    "bces\\evaluation\\artifacts.py": "963df324a8e95f81b6401630570caa79f2a8d19c48d36baffdf569b15e89b630",
+    "bces\\evaluation\\closed_loop_confirmation.py": "5d4209f0b86ebb8020e54027f7b0e73006b1a44e4a36d78fbc50f7204fa7540b",
+    "bces\\evaluation\\confirmation_power.py": "cb6f46aebea6fc9e7cbbf90224f766dc233e46b54c4b16a420500cd6ddbf7396",
+    "bces\\evaluation\\corruptions.py": "139af3a8df61f30816bc43799ac30a09556c5bfa0a7647d1b0183c981302f05b",
+    "bces\\evaluation\\decision_geometry.py": "482504f305097b21e922340bb8edc6dc0f0bb536c94d8c5985c00cf0f5126a88",
+    "bces\\evaluation\\scenario_slot_risk.py": "3abe7c064393e4f5f0854a610726483f1c354a5b90dfbde561355cc9f743f665",
+    "bces\\evaluation\\slot_confirmation.py": "d9ecf7d1814b8589b56ec82a9976d0022f11b4ab944f6141a4e5710dfce6b9c7",
+    "bces\\evaluation\\statistics.py": "f60ee1fd8d3b74d46790a70bced31ad9d3487602211fcbd331a1c629195b1715",
+    "bces\\evaluation\\study_b.py": "6ff6f94e7185b2a67c9e1ae6a387adf14980fff6428f25ae83ffa961d9b9164c",
+    "bces\\evaluation\\validity.py": "21a1537360da333f140e77395398c97ec4bfa9dd430001db3f82f2507eb6dd70",
+    "bces\\evaluation\\__init__.py": "49293eeba681f2983b86a42704ede736aef4c31fc2df76b47337d2e79460cfe0",
+    "bces\\geometry\\codebooks.py": "17914f43f19d9d3800caa85da713c08b4b8e53c48e1c647f6c0f9d847a73930a",
+    "bces\\geometry\\drift.py": "7fce63e54456e2186830220e0cca5061f2fe58c0a4926e48cd48e6c4a90a75a9",
+    "bces\\geometry\\empty_view_reachability.py": "07dca55fbc4f69f2131dc469643a7ba03045a63153a7b38cb550a71f8f221734",
+    "bces\\geometry\\interval_regret.py": "27526220e88317b71f3c43852a6502e7bc396d0767a59a68f4bfb63600334211",
+    "bces\\geometry\\lane_reachable_tube.py": "dd208b39196d209dc3d44fc40faf2253b7b03e3e7e9d5aeacf2f19a6f94160f4",
+    "bces\\geometry\\oriented_lane_tube.py": "b6a516dec56c6e7cf8cefaf02818181f380b349d558e3bdabdb25f7e7000d171",
+    "bces\\geometry\\reachable_shadow.py": "8cc749044e94392726ae1b9a9bfd1f8d4942a4c29ba8240211e0a44795f0694f",
+    "bces\\geometry\\regret_certificate.py": "dda71ffb34c9190dbbd9f12099a026b0f87344fcee635dc28edaf1578e2d60a4",
+    "bces\\geometry\\surfaces.py": "e4a5a751a2000d53b7bc4aa77d225ad419805c585d59fd47c7451b7e3010ba20",
+    "bces\\geometry\\__init__.py": "1e1361d1cc362b6f21fec5ecbc98c98030bb1bf98329c5997d75e66d1e2f87e3",
+    "bces\\models\\ablations.py": "958bdd28c6a46f52df8d0576b2c4c65adab2644fef1f65d0e2a1f405ba288a15",
+    "bces\\models\\batch.py": "6a35d90906477e58d55942d8a292153650cfe92eb169ffc4542c8b9e98877762",
+    "bces\\models\\bound_policy.py": "c32559966bbe16581ede98b260295cda70680adf2fa50a82c07f4a0ebc52a2a2",
+    "bces\\models\\calibration.py": "2b39673ceddde337193c7a4486aaeaee70686aafe62aa86f9d8fbb012a696091",
+    "bces\\models\\dataset.py": "d15529d5fccd8459c505599ca10af35f9f22220152eb1c002af55fbc26316f91",
+    "bces\\models\\decision_surface.py": "e6bf1a164018b3c8370d06c5251b3dbe1c947c6c0f9384f21d40dcfa3a28766c",
+    "bces\\models\\development_empty_wire_policy.py": "51f107b17f862c7bf03ea8194cf4fff774e88b9408eee07cf7d659ea9706a31b",
+    "bces\\models\\losses.py": "0c600c68fc65c01c36c7d4ffba9d9cf39f70bac3c7da61c348ce73ebeb480591",
+    "bces\\models\\reference_input.py": "a4753cd73e036452e0e05493504e47ec9fc48380cfd184b4873651326fb9e033",
+    "bces\\models\\scalar_ttl.py": "6e2cdfb6d307df9a75b106a20215e2b9f8e766778cb82ce576a4ea52138eaa48",
+    "bces\\models\\sumo_dataset.py": "bb7401bbf998c3ea3e3da9cf9ee564934cbd27ab21de53722338bbaad3e6b29a",
+    "bces\\models\\surfacenet.py": "b19c822b9017a0643f1c6f6363f8eed9f373d7e26a0baf15b64639392c4e2b09",
+    "bces\\models\\validity_mlp.py": "74d44127881f0d0063b3140cb6fd59acda87dc9c343506dd71cf4f8e12520714",
+    "bces\\models\\__init__.py": "d90ed3e5b86b54abf194d8801955cede6cae6327cf4415f2ead869be41326af0",
+    "bces\\network\\adaptive_margin_policy.py": "3f46e8ac9a1f7d4c725ba636caa4ac10d00993dd4f40673e88807be60baafc09",
+    "bces\\network\\bound_session.py": "2a10f338320fb4bd8ac5bab661c987144534c36e121a368653a3541edabf9958",
+    "bces\\network\\events.py": "5981cb713efd96ed270d484ca4818c099d1445a880ad3ee638a0eda17e97ef4f",
+    "bces\\network\\guard_coalescing.py": "d8a42959b4901017dcdeca2a158e4c95f5f65790c5b3b0e7167175965bc25c6b",
+    "bces\\network\\study.py": "a3ffd5237d735adf91989da0fc186e14a1a60e028099b96eb02d133064377b05",
+    "bces\\network\\wire_channel.py": "1a9b1cd0172eee1367cefeea9b7b7009696402ee738c216f869b2157588772fa",
+    "bces\\network\\__init__.py": "e10b2f50688eae755f34fab368df39bca0392da101081ab01777e86aedaea911",
+    "bces\\oracle\\boundary.py": "66668d8880f30357b0b99ed6acc95a012792b13b642cb2522453353279242bf1",
+    "bces\\oracle\\causal_diagnostics.py": "57393c72aea6013466a40721d5d677ca25afd2ec5a6ebe603d3ddb94f616f61e",
+    "bces\\oracle\\observational.py": "8202cdba7049cbddf5b9500f1a86c74130eb48c978989354b2b41bcc23e311e5",
+    "bces\\oracle\\observational_v2.py": "af36fb2d1aa20451f0f8d8349dace07d8c1fa9cf2c8c79ac6ef9c4d532944d1b",
+    "bces\\oracle\\planner.py": "44d7443d713ec2d0766f3b3fe4d15d2ccfe12eadade2ba35192308185c2093b3",
+    "bces\\oracle\\scales.py": "10a26359926fbaf9a9bd7bab54055afc2b4a8310b87bf3ea352695738e613167",
+    "bces\\oracle\\validity.py": "fc01711aff9b22618c324e10434789eec209ae9602e8b471e9bdd2bb61c98dd8",
+    "bces\\oracle\\vectorized_planner.py": "09c3123b0590ac5908b0c66c333f27f37df592fb87948e7a0fd3f4c644f661af",
+    "bces\\oracle\\view_association.py": "6ba342f2e48495b9f30997beadff485eca16cafe492b8066a9f21affaace4c3e",
+    "bces\\oracle\\world.py": "54f75f0feae1d67c8d7bed72730c643da5a80fd4aa062deeb577400049886054",
+    "bces\\oracle\\__init__.py": "8064191475629abb8cfe91f78b814a1600f9b4b2a48d844385128d7f8da12bb1",
+    "bces\\protocol\\bindings.py": "ef2953bf91b40e0dd7657dd3fd4d01002fbce4eebc6bc5de17c34145acc493be",
+    "bces\\protocol\\bound_exchange.py": "66c13186632b479442d1eb2b1f08262cbca5fff6f07d156a7aae82fecb1926ed",
+    "bces\\protocol\\codec.py": "b51fedcdf741707d1c3817ec2e4efec5171cbb325e36f6432f8fccd5ecef68b7",
+    "bces\\protocol\\packet.py": "10c4f5c17e6230395c675230a34bfb070f73a059f8a1f39285ab4a98f57e4dc6",
+    "bces\\protocol\\query.py": "942e0133188d49bd9f3041c949c4864881e2c78f89e292ab8c8d454cd17e53d3",
+    "bces\\protocol\\receiver.py": "c81c18183cf39360d1e5ee79da3bda00b5db391bfb94295790a8b48a0d41b7ca",
+    "bces\\protocol\\__init__.py": "67ff40f98afb4ada09df77b1ca39dd9bf233463a6bdd82fcf1bd3f6993947d7e",
+    "bces\\simulation\\branching.py": "19fd58b6dac089fc5de4940827997024350ef8339f4e8e21b0a3042512883373",
+    "bces\\simulation\\closed_loop.py": "c8840e259bcdedf8a746ca052eebcd5a8e97fd0539671ff8293bc111c03a3d3a",
+    "bces\\simulation\\controlled_closed_loop.py": "dbb58e673ca9627e3a3b91ac44d267767c658520a91af975c9dc1909f47acdcd",
+    "bces\\simulation\\controlled_contract.py": "cab2a8fd85c1bcd9454553850727eff34407c0ccf45ec40004f7bd65e1d4ccc6",
+    "bces\\simulation\\controlled_decisions.py": "38ea8cbeb90d1264f0b823562c0f7fa874808d8090930eb74ed45371957ffaae",
+    "bces\\simulation\\controlled_slots.py": "18f5ed771cd409e86d7cdaca4228b1f2971132dea7dfcb588a32b67990efd590",
+    "bces\\simulation\\development_critical_loop.py": "ca1b1eaab6776e2aeab591297b3b7afa34d8ac5d6da85ee3a4d13833f272e5f2",
+    "bces\\simulation\\development_early_yield_planner.py": "734e5d37d2e66aa46a3484110223c3cdfa28e3e50a4231c6fad4186984690346",
+    "bces\\simulation\\development_empty_decision_labels.py": "4cec87e27ba6c585664f2f1f730b4f113f954a4ff068edeb8ed4f116fcfeb144",
+    "bces\\simulation\\development_empty_view_input.py": "98293967392ba0ee59e2d96b15b5ab6718bcd9fb25424fdb10de1c84c7b0dc5f",
+    "bces\\simulation\\development_gap_shadow.py": "1abfa879e17a03a3c34669bb12216f8c238b395842e1ac8b211fcf745f9174d4",
+    "bces\\simulation\\development_map_loop.py": "2d7dbc56e357e8a4b9f91e6f69701d853638c4eb54bce7d3103a6a942d89a3c2",
+    "bces\\simulation\\development_negative_evidence_planner.py": "a05b56c2f7d1c29064037bc64b99836e84d9b45c33024bfdfbfe7d0feda7517a",
+    "bces\\simulation\\development_recovery_planner.py": "599b6f9903f7ce987e8e9b8fb9f9d6860e3b1d8982275a2f80cd5e499492c76e",
+    "bces\\simulation\\development_stateless_empty_planner.py": "31544ba4af7584d64946ae093f4801ffa4b2f9631d976003afa7b619fdc2f538",
+    "bces\\simulation\\development_stop_hold_candidate.py": "b7b64a0d42c5b6b625df5a8a224085a5ea5fb844bdc7048c00c9a66df3ddaf0b",
+    "bces\\simulation\\development_visibility.py": "0319c2aa2a38f9135271a562b02d037007271784d7d5261922a3d48b842dc4b1",
+    "bces\\simulation\\development_visibility_map.py": "32ca0c83f53e4ba52bc1dcb257243f4a9834a3f9ce2e3b7dbfb48455415c7a97",
+    "bces\\simulation\\scenario_builder.py": "b575c9032bb191a4b8086f1a2d826692e304291f64f63d20112a66e0791f0826",
+    "bces\\simulation\\sumo_adapter.py": "33ea246d3eaa0a77530db7005fc175c4ebab0f5ed66128e6bdfbe9ab7844fa60",
+    "bces\\simulation\\__init__.py": "ce8205bbdcabf4b0782925488c87164fb39cb6e447eec670e77dfad337050e9d",
+    "bces\\smoke\\network_guard.py": "3925f0924cf103c214e87fb44ba22acbe24a1bdd1535ec547b016ed5fe071aa6",
+    "bces\\smoke\\pipeline.py": "c835a6d8f57f4125ed4386e1fea4113b9496ca5c8ca4a6dfaefd1873273f2565",
+    "bces\\smoke\\__init__.py": "4a99974840eb4bc73f9d6dfa7f7e40b88f64edc4dda0eec66e4345eda51cd75e",
+    "bces\\utils\\budget.py": "1ead9dca0ced12f9159b16bb9440a8461e6db8abc63ecdc8b2e3b0db38856bc2",
+    "bces\\utils\\environment.py": "5232ebe6d77cdb03b8985eb4815cef27d5e221653b6d96e156f5806dd2ed8789",
+    "bces\\utils\\hashing.py": "9b8ccae026e175f94e7ac4e957080b37f60aa9526bc5840513850a78247f27f5",
+    "bces\\utils\\reproducibility.py": "7d1f7ca4af0da528a74e3ba60999e50b73e6ccbb2b9a48568ef4a09ddb70d425",
+    "bces\\utils\\__init__.py": "91837209340406fc700e1da86c9e647ff8b4de7feffb6dc596d32928500d5fd7"
+  },
+  "development_report_sha256": "97dbadef140eb7ac908e359a17dda47f37573852b2f7886d5535174d83c2db1a",
+  "budget_report_sha256": "5abda796e33dac73315eef8ad26b6a0ee33961d619c2f9044cd8e2b1f5d3d61f",
+  "slot_scenarios": 2400,
+  "slot_seed_start": 1700000000,
+  "slot_phase_id": 301026,
+  "slot_randomization_seed": 303026,
+  "slot_methods": [
+    "age_only",
+    "normalized_drift",
+    "cam_inspired",
+    "observable_cost_trigger",
+    "flexible_mlp",
+    "flexible_tree",
+    "surface_teacher1_behavior1",
+    "surface_teacher0_behavior1",
+    "ttl_teacher1_behavior1",
+    "ttl_teacher0_behavior1",
+    "surface_teacher1_behavior0",
+    "surface_teacher0_behavior0",
+    "ttl_teacher1_behavior0",
+    "ttl_teacher0_behavior0",
+    "frozen_scalar_ttl",
+    "frozen_surface",
+    "cam_fixed"
+  ],
+  "driving_methods": [
+    "frozen_surface",
+    "frozen_scalar_ttl",
+    "flexible_mlp",
+    "flexible_tree",
+    "cam_inspired",
+    "cam_fixed",
+    "normalized_drift",
+    "age_only",
+    "observable_cost_trigger",
+    "cpm_inspired_push",
+    "periodic_payload",
+    "local_only",
+    "cam_fixed_unbudgeted",
+    "cpm_inspired_push_unbudgeted",
+    "periodic_payload_unbudgeted"
+  ],
+  "driving_assignments": [
+    {
+      "seed": 1800000003,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000004,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000005,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000006,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000007,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000009,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000011,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000015,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000016,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000018,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000020,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000023,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000024,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000026,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000030,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000031,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000032,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000033,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000034,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000035,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000037,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000039,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000041,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000042,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000046,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000047,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000049,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000050,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000051,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000052,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000053,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000054,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000055,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000056,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000057,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000060,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000061,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000062,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000065,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000066,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000067,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000068,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000069,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000070,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000071,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000072,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000074,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000075,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000076,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000077,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000079,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000080,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000081,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000082,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000083,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000084,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000086,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000087,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000088,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000089,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000091,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000092,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000093,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000095,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000097,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000098,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000099,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000100,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000101,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000102,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000104,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000105,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000107,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000108,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000109,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000111,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000112,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000114,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000116,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000117,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000118,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000119,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000120,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000121,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000122,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000124,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000129,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000132,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000133,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000135,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000136,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000137,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000138,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000140,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000143,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000144,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000146,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000147,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000148,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000149,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000151,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000153,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000154,
+      "family": "unprotected_crossing"
+    },
+    {
+      "seed": 1800000157,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000162,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000163,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000165,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000166,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000167,
+      "family": "pedestrian_crossing"
+    },
+    {
+      "seed": 1800000168,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000174,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000177,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000178,
+      "family": "on_ramp_merge"
+    },
+    {
+      "seed": 1800000180,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000185,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000188,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000197,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000200,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000202,
+      "family": "straight_lead_braking"
+    },
+    {
+      "seed": 1800000203,
+      "family": "straight_lead_braking"
+    }
+  ],
+  "driving_horizon_s": 30.0,
+  "driving_conditions": [
+    "nominal",
+    "impaired"
+  ],
+  "budget_rules": {
+    "frozen_surface": {
+      "method": "frozen_surface",
+      "parameter": 2000,
+      "kind": "min_refresh_ms",
+      "mean_generated_bytes": 3284.75,
+      "scenario_bytes": [
+        4661,
+        2864,
+        2635,
+        2979
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.0892959874682026,
+      "development_budget_match_within_10_percent": true
+    },
+    "frozen_scalar_ttl": {
+      "method": "frozen_scalar_ttl",
+      "parameter": 2000,
+      "kind": "min_refresh_ms",
+      "mean_generated_bytes": 3284.75,
+      "scenario_bytes": [
+        4661,
+        2864,
+        2635,
+        2979
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.0892959874682026,
+      "development_budget_match_within_10_percent": true
+    },
+    "flexible_mlp": {
+      "method": "flexible_mlp",
+      "parameter": 1600,
+      "kind": "min_refresh_ms",
+      "mean_generated_bytes": 3937.75,
+      "scenario_bytes": [
+        5593,
+        3343,
+        3362,
+        3453
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.09174966903024133,
+      "development_budget_match_within_10_percent": true
+    },
+    "flexible_tree": {
+      "method": "flexible_tree",
+      "parameter": 2000,
+      "kind": "min_refresh_ms",
+      "mean_generated_bytes": 3284.75,
+      "scenario_bytes": [
+        4661,
+        2864,
+        2635,
+        2979
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.0892959874682026,
+      "development_budget_match_within_10_percent": true
+    },
+    "cam_inspired": {
+      "method": "cam_inspired",
+      "parameter": 2000,
+      "kind": "min_refresh_ms",
+      "mean_generated_bytes": 3284.75,
+      "scenario_bytes": [
+        4661,
+        2864,
+        2635,
+        2979
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.0892959874682026,
+      "development_budget_match_within_10_percent": true
+    },
+    "cam_fixed": {
+      "method": "cam_fixed",
+      "parameter": 2000,
+      "kind": "min_refresh_ms",
+      "mean_generated_bytes": 3284.75,
+      "scenario_bytes": [
+        4661,
+        2864,
+        2635,
+        2979
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.0892959874682026,
+      "development_budget_match_within_10_percent": true
+    },
+    "normalized_drift": {
+      "method": "normalized_drift",
+      "parameter": 2000,
+      "kind": "min_refresh_ms",
+      "mean_generated_bytes": 3284.75,
+      "scenario_bytes": [
+        4661,
+        2864,
+        2635,
+        2979
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.0892959874682026,
+      "development_budget_match_within_10_percent": true
+    },
+    "age_only": {
+      "method": "age_only",
+      "parameter": 2000,
+      "kind": "min_refresh_ms",
+      "mean_generated_bytes": 3284.75,
+      "scenario_bytes": [
+        4661,
+        2864,
+        2635,
+        2979
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.0892959874682026,
+      "development_budget_match_within_10_percent": true
+    },
+    "observable_cost_trigger": {
+      "method": "observable_cost_trigger",
+      "parameter": 2000,
+      "kind": "min_refresh_ms",
+      "mean_generated_bytes": 3284.75,
+      "scenario_bytes": [
+        4661,
+        2864,
+        2635,
+        2979
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.0892959874682026,
+      "development_budget_match_within_10_percent": true
+    },
+    "cpm_inspired_push": {
+      "method": "cpm_inspired_push",
+      "parameter": 1400,
+      "kind": "source_generation_min_interval_ms",
+      "mean_generated_bytes": 3556.25,
+      "scenario_bytes": [
+        5310,
+        3122,
+        2759,
+        3034
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.014022027683627517,
+      "development_budget_match_within_10_percent": true
+    },
+    "periodic_payload": {
+      "method": "periodic_payload",
+      "parameter": 1400,
+      "kind": "periodic_interval_ms",
+      "mean_generated_bytes": 3556.25,
+      "scenario_bytes": [
+        5310,
+        3122,
+        2759,
+        3034
+      ],
+      "common_max_reuse_age_s": 1.2,
+      "target_mean_generated_bytes": 3606.825,
+      "relative_budget_error": 0.014022027683627517,
+      "development_budget_match_within_10_percent": true
+    }
+  },
+  "slot_thresholds": {
+    "age_only": -0.8000000119209288,
+    "normalized_drift": -0.8500000238418578,
+    "cam_inspired": -7.454218864440917,
+    "observable_cost_trigger": -1.2805449962615965,
+    "flexible_mlp": 4.580947875976563,
+    "flexible_tree": 0.9907584463894995,
+    "surface_teacher1_behavior1": 0.05195922777056695,
+    "surface_teacher0_behavior1": 0.2794067263603211,
+    "ttl_teacher1_behavior1": 0.2764526009559632,
+    "ttl_teacher0_behavior1": 0.7176269292831422,
+    "surface_teacher1_behavior0": 0.04411621019244195,
+    "surface_teacher0_behavior0": 0.3264648318290711,
+    "ttl_teacher1_behavior0": 0.2833129763603211,
+    "ttl_teacher0_behavior0": 0.7901733517646791,
+    "frozen_scalar_ttl": 0.0,
+    "frozen_surface": 0.0
+  },
+  "primary_slot_contrasts": {
+    "reference": "frozen_surface",
+    "comparators": [
+      "frozen_scalar_ttl",
+      "flexible_mlp",
+      "flexible_tree",
+      "cam_inspired",
+      "cam_fixed",
+      "normalized_drift",
+      "age_only",
+      "observable_cost_trigger"
+    ]
+  },
+  "primary_endpoint": "per-scenario accepted AND (invalid OR oracle-unavailable)",
+  "conditional_invalid_reuse": "reported separately with family-adjusted exact upper bounds across all methods",
+  "coverage_equivalence_band": 0.03,
+  "multiple_comparisons": "two-sided exact paired discordance tests; Holm across eight contrasts",
+  "power_design": {
+    "BCES_only_event_probability": 0.01,
+    "comparator_only_event_probability": 0.025,
+    "minimally_useful_absolute_event_difference": 0.015,
+    "worst_case_Bonferroni_alpha": 0.00625,
+    "simulation_replicates": 20000,
+    "estimated_power": 0.87885
+  },
+  "stopping": "fixed N; no interim outcome inspection, policy tuning, replacement, family removal, or efficacy stopping",
+  "budget_matching": "development nearest-byte choices; report actual confirmation mismatch, and call matched only within 10 percent of common target",
+  "driving_inference": "scenario clusters; two channels nested; zero events do not establish equivalence or a 1-percent adverse bound at N=120",
+  "driving_primary_metric": "per-scenario mean positive cost regret across available planning decisions, two channel means nested equally",
+  "driving_primary_inference": "20,000 within-family whole-scenario bootstrap replicates; Bonferroni-adjusted intervals for BCES versus the eight prespecified comparator policies; approximate sampling intervals",
+  "driving_secondary_metrics": [
+    "max cached-plan risk",
+    "max planned-path deviation",
+    "minimum longitudinal TTC",
+    "route progress",
+    "adverse episode including >5-m progress deficit versus unbudgeted periodic",
+    "actual generated bytes",
+    "request/payload latency"
+  ],
+  "driving_budget_variants": "common 1.2-second age cap plus development-selected request cooldown; a rejected payload uses local fallback; unbudgeted CAM/CPM-inspired and 200-ms periodic controls are also retained",
+  "driving_scope": "receiver-local variants; up to 30 seconds or route completion; four predefined map-compatible families",
+  "new_seed_namespaces_disjoint": true,
+  "historical_holdout_tuning": false,
+  "historical_filename_seed_candidates_checked": 19330
+}

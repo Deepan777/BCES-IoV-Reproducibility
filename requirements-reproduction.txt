@@ -1,0 +1,12 @@
+numpy==2.4.6
+scipy==1.17.1
+torch==2.13.0
+scikit-learn==1.8.0
+joblib==1.5.3
+PyYAML==6.0.3
+psutil==7.2.2
+matplotlib==3.10.8
+eclipse-sumo==1.27.1
+requests>=2.31,<3
+pytest>=8,<10
+hypothesis>=6,<7

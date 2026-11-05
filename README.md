@@ -1,63 +1,33 @@
-# BCES-IoV: implementation and reproducibility code
+# Experimental implementation and generated data
 
-This repository contains the Python implementation, experiment entry points,
-configuration, SUMO network definition, and tests for the BCES-IoV study. It
-is a code-only release: it does **not** contain third-party datasets, trained
-checkpoints, simulation/analysis outputs, preregistration artifacts, or the
-manuscript. Consequently, a fresh clone can run the synthetic smoke tests, but
-cannot independently reconstruct the reported numerical tables without the
-specified source data and frozen study artifacts.
+Python 3.11 is required. Recorded package versions are in `operations/environment.json`; SUMO is version 1.27.1.
 
-## Contents
+## Setup and reproduce
 
-- `bces/`: protocol, geometry, regret oracle, models, simulation, baselines,
-  network accounting, and evaluation modules.
-- `scripts/`: environment checks, acquisition/manifest utilities, training,
-  calibration, controlled experiments, frozen analyses, and external-data
-  validation entry points.
-- `configs/`, `schemas/`, `sumo/`: study configurations, schema, and the
-  controlled SUMO network.
-- `tests/`: unit, integration, and smoke tests.
-- `pyproject.toml`, `uv.lock`, `Makefile`: Python environment and common tasks.
-
-## Environment and code verification
-
-The project targets Python 3.11 and pins SUMO to version 1.27.1. With
-[`uv`](https://docs.astral.sh/uv/) installed:
-
-```powershell
-uv sync --extra phase0 --frozen
-uv run --no-sync python scripts/01_verify_environment.py
-uv run --no-sync python -m pytest -q tests/unit tests/smoke
-uv run --no-sync python scripts/02_smoke_pipeline.py
+```text
+python -m pip install -r requirements-reproduction.txt
+python reproduce.py materialize
+python reproduce.py verify --materialized
+python reproduce.py analyze all
+python -m pytest -q tests
 ```
 
-The self-contained selection above passed 330 tests in the release staging
-copy. The integration suite also includes tests that require external data or
-frozen output artifacts and is not expected to pass in a code-only clone.
+The materialization command restores generated experiment files to their expected paths. It verifies their SHA-256 digests and refuses to overwrite differing files. The compressed data packs preserve the original per-case bytes. Running the analyses writes new results beneath `reproduced/`; the saved reference results remain available for comparison.
 
-## Reproducing the reported analyses
+Individual analyses can be run with `python reproduce.py analyze primary`, `broad`, `driving`, `source-query`, `robustness`, or `support`. The `primary` command covers independent calibration and evaluation. Source-query and receiver-local driving are separate studies; the earlier failed source-query run is retained separately and is not combined with the repaired run.
 
-The numbered scripts preserve the original pipeline order. The confirmatory
-closed-loop analysis entry point is `scripts/32_analyze_closed_loop_v2.py`.
-It verifies SHA-256 digests for registered branch files before computing
-scenario-clustered results. It requires the original
-`outputs/study_b/closed_loop_confirmation_v2/` preregistration and branch
-artifacts; this repository intentionally does not supply them. Do not create
-new seed sets and call them a replication of the registered result.
+## Implementation
 
-The scripts include historical development and negative-result probes to
-retain analytical provenance. Their presence does not mean that all probes
-were confirmatory or that all observed improvements replicated. Controlled
-simulation outcomes and external trajectory proxies have different evidence
-roles and should not be pooled.
+- `bces/`: receiver protocol, geometry, planners, models, simulation and statistics.
+- `experiments/`: fixed classifiers, factorial training, operating-point selection, receiver-local driving, sensing errors, premise audits and external-view evaluation.
+- `scripts/`: controlled simulation generation, original training/selection, source-query driving and external-data adapters.
+- `configs/`, `sumo/`: experimental configurations and the controlled road network.
+- `tests/`: causality, policy-feature consistency, transport and driving-contract checks.
+- `data/generated/`: generated scenario inputs, frozen checkpoints, calibration/evaluation records, traffic/planning outcomes, ablation predictions and derived external metrics.
+- `data/reproduction_manifest.json`: checksums and materialization paths.
 
-The source-data manifests under `configs/data/` identify selection and source
-contracts but contain no raw trajectories. Dataset acquisition is subject to
-each provider's terms. See the associated article's Data Availability
-statement for the data sources and request route for derived artifacts.
+The experiment sources and registered inputs retain their scientific bytes. `reproduce.py` relocates their working paths in memory. To invoke an original entry point, use `python reproduce.py run experiments/premise_and_runtime.py runtime`, replacing the script and arguments as needed. Training entry points include `scripts/13_train_decision_surfaces.py` and `experiments/development_study.py`. Repeated analyses use the supplied fixed operating points and scenario assignments.
 
-## Scope and licensing
+## External input data
 
-This release does not convey third-party dataset redistribution rights. It
-also does not include a software license until the rights holders approve one.
+Derived external evaluation metrics are included. Regenerating them from observations also requires the provider's data: [UrbanIng-V2X](https://doi.org/10.7910/DVN/A9LPY7), [V2X-Real](https://mobility-lab.seas.ucla.edu/v2x-real/) and [FLUID](https://doi.org/10.6084/m9.figshare.29974954.v2). The adapters specify the expected local paths under `data/raw/` and `data/external/`. Provider sensor/trajectory files are obtained directly from those sources.

@@ -1,0 +1,16 @@
+{
+  "python": "3.11.5",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "torch": "2.13.0+cu126",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3",
+    "PyYAML": "6.0.3",
+    "psutil": "7.2.2",
+    "matplotlib": "3.10.8",
+    "eclipse-sumo": "1.27.1",
+    "traci": "not separately packaged"
+  }
+}
