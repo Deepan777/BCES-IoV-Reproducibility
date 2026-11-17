@@ -215687,8 +215687,8 @@
       "sha256": "d8c502fdc1dba0d485bed5a26cf6b241ed02f50ee65eb6af0ab1f3f81c80a25b"
     },
     "README.md": {
-      "bytes": 2933,
-      "sha256": "0b11d27ef38faabf0d3fb99c3d2a107eeb72025faad855a69a784aeca2558ceb"
+      "bytes": 3368,
+      "sha256": "d2e769ac6991f4050cad0b7a08696b910983c60c80debfb88ffb4a6c2a7574f6"
     },
     "bces/__init__.py": {
       "bytes": 72,
@@ -216289,6 +216289,10 @@
     "scripts/144_verify_empty_teacher_transfer_dev.py": {
       "bytes": 12785,
       "sha256": "998040329ea2642e4d9bbc3de30caf979436635a24a5e2bd8358f1c6a3a325d2"
+    },
+    "scripts/157_diagnose_closed_loop_v2_byte_contrast.py": {
+      "bytes": 5141,
+      "sha256": "62fde28f304f10d259e5037529ac068cfbdb4b74ad9223a4923afeb4019035be"
     },
     "scripts/15_audit_controlled_sumo.py": {
       "bytes": 7798,

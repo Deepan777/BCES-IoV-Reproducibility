@@ -14,7 +14,7 @@ python -m pytest -q tests
 
 The materialization command restores generated experiment files to their expected paths. It verifies their SHA-256 digests and refuses to overwrite differing files. The compressed data packs preserve the original per-case bytes. Running the analyses writes new results beneath `reproduced/`; the saved reference results remain available for comparison.
 
-Individual analyses can be run with `python reproduce.py analyze primary`, `broad`, `driving`, `source-query`, `robustness`, or `support`. The `primary` command covers independent calibration and evaluation. Source-query and receiver-local driving are separate studies; the earlier failed source-query run is retained separately and is not combined with the repaired run.
+Individual analyses can be run with `python reproduce.py analyze primary`, `broad`, `driving`, `source-query`, `robustness`, or `support`. The `primary` command covers independent calibration and evaluation. The post hoc diagnostic of the source-query byte-reduction contrast, which explains why the stratified bootstrap interval excludes zero while the paired sign-flip test does not reject, is run with `python reproduce.py run scripts/157_diagnose_closed_loop_v2_byte_contrast.py` after materialization and writes `reproduced/source_query_byte_contrast_diagnostic.json`. It was not prespecified and does not change the registered analysis. Source-query and receiver-local driving are separate studies; the earlier failed source-query run is retained separately and is not combined with the repaired run.
 
 ## Implementation
 
